@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="eng">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,13 @@
 </head>
 <body>
     <h1>Sistema de Notas AW1</h1>
-    <h3>Insira o tipo da média:</h3>
-    <input type="radio" name="Média" id="rdMediaArit"> Média Aritmética <input type="radio" name="Média" id="rdMediaPond"> Média Ponderada <input type="text" name="Formula Média" id="formula"><br> 
-
-    Aluno: <input type="text" name="Aluno" id="aluno" size="50"><br>Nota: <input type="text" name="Nota" id="nota" size="7">
+    <h3>Insira os dados do Aluno:</h3>
+    Aluno: <input type="text" name="Aluno" id="inAluno" size="30"> Nota: <input type="text" name="Nota" id="inNota" size="4"> <input type="button" value="Adicionar Nota" id="btAddNota"><br>
+    <p id="outNotas">Média = </p>
+    <h4>Insira o tipo da média:</h4>
+    <input type="radio" name="Média" id="rdMediaArit"> Média Aritmética <input type="radio" name="Média" id="rdMediaPond"> Média Ponderada
+    <br><br><input type="button" value="Calcular Média" id="btCalcMedia"> <input type="button" value="Remover Média do Aluno" id="btRemovMedia"><br><br>
+    Aluno - Média <p id="listAlunMedias"></p>
 
     <script src="js/sistem_notas.js"></script>
 </body>
