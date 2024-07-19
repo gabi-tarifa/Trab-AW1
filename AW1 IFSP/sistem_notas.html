@@ -10,10 +10,12 @@
 <body>
     <h1>Sistema de Notas AW1</h1>
     <h3>Insira os dados do Aluno:</h3>
-    Aluno: <input type="text" name="Aluno" id="inAluno" size="30"> Nota: <input type="text" name="Nota" id="inNota" size="4"> <input type="button" value="Adicionar Nota" id="btAddNota"><br>
+    Aluno: <input type="text" name="Aluno" id="inAluno" size="30" required><span id="textoAjuda">Insira o nome completo do aluno que vai receber a nota</span><br><br>
+    Nota: <input type="text" name="Nota" id="inNota" size="4" required><span id="textoAjuda">Insira um conjunto de notas para que possa haver um cálculo de média. A cada nota inserida, aperte o botão "Adicionar Nota".</span><br>
+ <input type="button" value="Adicionar Nota" id="btAddNota">
     <p id="outNotas">Média = </p>
     <h4>Insira o tipo da média:</h4>
-    <input type="radio" name="Média" id="rdMediaArit"> Média Aritmética <input type="radio" name="Média" id="rdMediaPond"> Média Ponderada
+    <input type="radio" name="Média" id="rdMediaArit" required> Média Aritmética <input type="radio" name="Média" id="rdMediaPond" required> Média Ponderada <input type="radio" name="Média" id="rdSomaSimp"> Soma Simples
     <br><br><input type="button" value="Calcular Média" id="btCalcMedia"> <input type="button" value="Remover Média do Aluno" id="btRemovMedia"><br><br>
     Aluno - Média <p id="listAlunMedias"></p>
 
