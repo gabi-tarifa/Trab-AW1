@@ -3,26 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=7">
-    <title>Sistema de notas IFSP</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sistema de Notas IFSP</title>
+    <link rel="stylesheet" href="css/estilos.css" media="screen">
 </head>
 <body>
-    <h1>Sistema de Notas AW1</h1>
-    <h3>Insira os dados do Aluno:</h3>
-    Aluno: <input type="text" name="Aluno" id="inAluno" size="30" required><span id="textoAjuda">Insira o nome completo do aluno que vai receber a nota</span><br><br>
-    Nota: <input type="text" name="Nota" id="inNota" size="4" required><span id="textoAjuda">Insira um conjunto de notas para que possa haver um cálculo de média. A cada nota inserida, aperte o botão "Adicionar Nota".</span><br>
-    <input type="button" value="Adicionar Nota" id="btAddNota"> <input type="button" value="Remover Nota" id="btRemovNota">
-    
-    <p id="outNotas">Média = </p>
-    
-    <h4>Insira o tipo da média:</h4>
-    <input type="radio" name="Média" id="rdMediaArit" required> Média Aritmética <input type="radio" name="Média" id="rdMediaPond" required> Média Ponderada <input type="radio" name="Média" id="rdSomaSimp"> Soma Simples
-    <span id="textoPesos" class="oculta"><br><br>Peso:<input type="text" name="Peso" id="inPeso" class="oculta" size="4" class="oculta"> <input type="button" value="Adicionar Peso" id="btAddPeso" class="oculta"> <input type="button" value="Remover Peso" id="btRemovPeso" class="oculta"> </span>
-    
-    <br><br><input type="button" value="Calcular Média" id="btCalcMedia"> <input type="button" value="Remover Média do Aluno" id="btRemovMedia"><br><br>
-    <p id="outListAlunMedias"></p>
+    <div class="container">
+        <h1>Sistema de Notas AW1</h1>
+        <h3>Insira os dados do Aluno:</h3>
+            <label for="inAluno">Aluno</label><br>
+            <input type="text" name="Aluno" id="inAluno" required>
+            <span id="textoAjuda">Insira o nome completo do aluno que vai receber a nota. Para remover um aluno que recebeu a nota errada, digite o nome do aluno e aperte o botão "Remover Média do Aluno".</span><br>
+            <label for="inNota">Nota</label><br>
+            <input type="text" name="Nota" id="inNota"  required>
+            <span id="textoAjuda">Insira um conjunto de notas para que possa haver um cálculo de média. A cada nota inserida, aperte o botão "Adicionar Nota". Caso uma nota seja inserida errada, aperte o botão "Remover Nota."</span><br>
+            <button type="button" id="btAddNota">Adicionar Nota</button>
+            <button type="button" id="btRemovNota">Remover Nota</button>
+        
+        <p id="outNotas">Média = </p>
 
+        <h4>Insira o tipo da média:</h4>
+        <form>
+            <label><input type="radio" name="Média" id="rdMediaArit" required> Média Aritmética</label><br>
+            <label><input type="radio" name="Média" id="rdMediaPond" required> Média Ponderada</label><br>
+            <label><input type="radio" name="Média" id="rdSomaSimp"> Soma Simples</label>
+            <span id="textoPesos" class="oculta"><br><br>Peso:<input type="text" name="Peso" id="inPeso" class="oculta" size="4" class="oculta"> <input type="button" value="Adicionar Peso" id="btAddPeso" class="oculta"> <input type="button" value="Remover Peso" id="btRemovPeso" class="oculta"> </span>
+        </form>
+        
+        <button type="button" id="btCalcMedia">Calcular Média</button>
+        <button type="button" id="btRemovMedia">Remover Média do Aluno</button>
+        
+        <h4>Aluno - Média</h4>
+        <p id="outListAlunMedias"></p>
+    </div>
     <script src="js/sistem_notas.js"></script>
 </body>
 </html>
