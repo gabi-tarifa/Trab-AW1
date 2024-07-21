@@ -12,12 +12,16 @@
     <h3>Insira os dados do Aluno:</h3>
     Aluno: <input type="text" name="Aluno" id="inAluno" size="30" required><span id="textoAjuda">Insira o nome completo do aluno que vai receber a nota</span><br><br>
     Nota: <input type="text" name="Nota" id="inNota" size="4" required><span id="textoAjuda">Insira um conjunto de notas para que possa haver um cálculo de média. A cada nota inserida, aperte o botão "Adicionar Nota".</span><br>
- <input type="button" value="Adicionar Nota" id="btAddNota">
+    <input type="button" value="Adicionar Nota" id="btAddNota"> <input type="button" value="Remover Nota" id="btRemovNota">
+    
     <p id="outNotas">Média = </p>
+    
     <h4>Insira o tipo da média:</h4>
     <input type="radio" name="Média" id="rdMediaArit" required> Média Aritmética <input type="radio" name="Média" id="rdMediaPond" required> Média Ponderada <input type="radio" name="Média" id="rdSomaSimp"> Soma Simples
+    <span id="textoPesos" class="oculta"><br><br>Peso:<input type="text" name="Peso" id="inPeso" class="oculta" size="4" class="oculta"> <input type="button" value="Adicionar Peso" id="btAddPeso" class="oculta"> <input type="button" value="Remover Peso" id="btRemovPeso" class="oculta"> </span>
+    
     <br><br><input type="button" value="Calcular Média" id="btCalcMedia"> <input type="button" value="Remover Média do Aluno" id="btRemovMedia"><br><br>
-    Aluno - Média <p id="listAlunMedias"></p>
+    <p id="outListAlunMedias"></p>
 
     <script src="js/sistem_notas.js"></script>
 </body>

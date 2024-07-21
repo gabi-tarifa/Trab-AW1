@@ -12,6 +12,16 @@ p {
 
 }
 
+.oculta{
+    display: none;
+    visibility: hidden;
+}
+
+.exibe{
+    display: inline;
+    visibility: visible;
+}
+
 #textoAjuda {
     font-size: x-small;
     color: white;
