@@ -2,8 +2,6 @@ var listAlunMedia = [];
 var listNotas = [];
 var listPesos = [];
 
-var textoNotas = "";
-
 function addNotas(){
     var rdMediaArit = document.getElementById("rdMediaArit");
     var rdMediaPond = document.getElementById("rdMediaPond");
@@ -32,21 +30,12 @@ function addNotas(){
         inNota.value = "";
         inNota.focus();
         return;
-    } else {
+    } else if (mediaAritmetica || somaSimples){
         listNotas.push(nota);
         inNota.value = "";
         if (mediaAritmetica || somaSimples) {
-            if (listNotas[1] == null) {
-                textoNotas += nota.toFixed(2);
-            } else {
-                textoNotas += " + " + nota.toFixed(2) ;
-            }
+            textoMediaAritSom();
         }
-    }
-    if (mediaAritmetica){ 
-        outNotas.textContent = "Média = " + textoNotas + " / " + listNotas.length;
-    } else if (somaSimples){
-        outNotas.textContent = "Média = " + textoNotas;
     } else {
         if(isNaN(peso) || peso > 99 || peso < 1){
             alert("Insira um peso válido...");
@@ -122,13 +111,12 @@ function calcularMedia(){
     listAlunMedia = listAlunMedia.sort(element => element.aluno == aluno);
     
     for (var y = 0; y < listAlunMedia.length; y++){
-        texto += listAlunMedia[y].aluno + " - " + listAlunMedia[y].media.toFixed(2);
+        texto += listAlunMedia[y].aluno + " - " + listAlunMedia[y].media.toFixed(2) + " \n";
     }
     inAluno.value = "";
-    outListAlunMedias.textContent = texto + " \n";
+    outListAlunMedias.textContent = texto;
     outNotas.textContent = "Média = ";
 
-    textoNotas = "";
     listNotas = [];
     listPesos = [];
 }
@@ -153,33 +141,15 @@ function removerNota(){
     if(mediaAritmetica || somaSimples) {
         listNotas.pop();
         alert("Nota removida com sucesso!!");
+        textoMediaAritSom();
     } else if(mediaPonderada) {
         listNotas.pop();
         listPesos.pop();
         alert("Nota e peso removidos com sucesso!!");
-    }
-    for(x = 0; x < listNotas.length; x++){
-        if (mediaAritmetica || somaSimples) {
-            if (x == 0) {
-                textoNotas += listNotas[x].toFixed(2);
-            } else {
-                textoNotas += " + " + listNotas[x].toFixed(2) ;
-            }
-        } else {
-            break;
-        }
-    }
-    if (mediaAritmetica){ 
-        outNotas.textContent = "Média = " + textoNotas + " / " + listNotas.length;
-    } else if (somaSimples){
-        outNotas.textContent = "Média = " + textoNotas;
+        textoMediaPond();
     } else {
-        if(isNaN(peso) || peso > 99 || peso < 1){
-            alert("Insira um peso válido...");
-            return;
-        } else {
-            textoMediaPond();
-        }
+        alert("Não há tipos de média selecionados...");
+        return;
     }
 }
 var btRemovNota = document.getElementById("btRemovNota");
@@ -216,9 +186,9 @@ var btRemovMedia = document.getElementById("btRemovMedia");
 btRemovMedia.addEventListener("click", removerAluno);
 
 function textoMediaPond(){
-    outNotas = document.getElementById("outNotas");
+    var outNotas = document.getElementById("outNotas");
     
-    var texto = ""
+    var texto = "";
 
     for (var x = 0; x < listNotas.length; x++) {
         if (x == 0) {
@@ -228,6 +198,30 @@ function textoMediaPond(){
         }
     }
     outNotas.textContent = "Média = " + texto;
+}
+
+function textoMediaAritSom(){
+    var rdMediaArit = document.getElementById("rdMediaArit");
+    var rdSomaSimp = document.getElementById("rdSomaSimp");
+    var outNotas = document.getElementById("outNotas");
+    
+    var mediaAritmetica = rdMediaArit.checked;
+    var somaSimples = rdSomaSimp.checked;
+    var texto = "";
+
+
+    for (var x = 0; x < listNotas.length; x++) {
+        if (x == 0) {
+            texto += listNotas[x].toFixed(2);
+        } else {
+            texto +=" + " + listNotas[x].toFixed(2);
+        }
+    }
+    if(mediaAritmetica){
+        outNotas.textContent = "Média = " + texto + " / " + listNotas.length;
+    } else if(somaSimples){
+        outNotas.textContent = "Média = " + texto;
+    }
 }
 
 function checarRadio(){
