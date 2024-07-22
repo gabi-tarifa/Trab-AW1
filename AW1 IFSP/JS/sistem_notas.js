@@ -11,7 +11,6 @@ function addNotas(){
     var mediaPonderada = rdMediaPond.checked;
     var somaSimples = rdSomaSimp.checked;
 
-    var outNotas = document.getElementById("outNotas");
     var inNota = document.getElementById("inNota");
     var inPeso = document.getElementById("inPeso");
 
@@ -108,13 +107,13 @@ function calcularMedia(){
         return;
     }
     listAlunMedia.push({aluno: aluno, media: media});
-    listAlunMedia = listAlunMedia.sort(element => element.aluno == aluno);
+    listAlunMedia = listAlunMedia.sort((a, b) => a.aluno.localeCompare(b.aluno));
     
     for (var y = 0; y < listAlunMedia.length; y++){
-        texto += listAlunMedia[y].aluno + " - " + listAlunMedia[y].media.toFixed(2) + " \n";
+        texto += listAlunMedia[y].aluno + " - " + listAlunMedia[y].media.toFixed(2) + " <br>";
     }
     inAluno.value = "";
-    outListAlunMedias.textContent = texto;
+    outListAlunMedias.innerHTML = texto;
     outNotas.textContent = "Média = ";
 
     listNotas = [];
