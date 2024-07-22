@@ -17,6 +17,10 @@ function addNotas(){
     var nota = Number(inNota.value);
     var peso = Number(inPeso.value);
 
+    if(inNota == ""){
+        alert("Insira um valor válido de nota...");
+        return;
+    }
 
     if(!mediaAritmetica && !mediaPonderada && !somaSimples) {
         alert("Insira o tipo de média que será usada...");
