@@ -40,6 +40,8 @@ function addNotas(){
             alert("Insira um peso válido...");
             return;
         } else {
+            listNotas.push(nota);
+            inNota.value = "";
             listPesos.push(peso);
             inPeso.value = "";
             textoMediaPond();
