@@ -17,7 +17,7 @@ function addNotas(){
     var nota = Number(inNota.value);
     var peso = Number(inPeso.value);
 
-    if(inNota == ""){
+    if(nota == ""){
         alert("Insira um valor válido de nota...");
         return;
     }
